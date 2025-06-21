@@ -51,7 +51,7 @@ export default function Home() {
         />
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
           <a
-            href="/dashboard"
+            href="/auth"
             className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
             role="alert">
             <span className="text-xs bg-primary rounded-full text-white px-4 py-1.5 mr-3">
@@ -83,7 +83,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
             <a
-              href="/dashboard"
+              href="/auth"
               className=" cursor-pointer inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
               <svg
                 className="mr-2 -ml-1 w-5 h-5"
@@ -100,7 +100,9 @@ export default function Home() {
               FEATURED IN
             </span>
             <div className="flex flex-wrap justify-center items-center mt-8 text-gray-500 sm:justify-between">
-              <a className="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400 cursor-pointer">
+              <a
+                className="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400 cursor-pointer"
+                href="/auth">
                 <svg
                   className="h-8"
                   viewBox="0 0 132 29"
@@ -144,7 +146,9 @@ export default function Home() {
                   />
                 </svg>
               </a>
-              <a className="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400 cursor-pointer">
+              <a
+                className="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400 cursor-pointer"
+                href="/auth">
                 <svg
                   className="h-11"
                   viewBox="0 0 208 42"
@@ -164,7 +168,9 @@ export default function Home() {
                   />
                 </svg>
               </a>
-              <a className="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400 cursor-pointer">
+              <a
+                className="mr-5 mb-5 lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400 cursor-pointer"
+                href="/auth">
                 <svg
                   className="h-11"
                   viewBox="0 0 120 41"
@@ -200,6 +206,7 @@ export default function Home() {
 
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           <a
+            href="/auth"
             className="block rounded-xl border bg-white
          border-gray-200 p-8 shadow-xl transition
          hover:border-pink-500/10 hover:shadow-blue-500/40 cursor-pointer">
@@ -217,7 +224,9 @@ export default function Home() {
             </p>
           </a>
 
-          <a className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-blue-500/40 cursor-pointer">
+          <a
+            href="/auth"
+            className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-blue-500/40 cursor-pointer">
             <Edit className="h-8 w-8" />
 
             <h2 className="mt-4 text-xl font-bold text-black">
@@ -233,7 +242,9 @@ export default function Home() {
             </p>
           </a>
 
-          <a className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-blue-500/40 cursor-pointer">
+          <a
+            href="/auth"
+            className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-blue-500/40 cursor-pointer">
             <Share2 className="h-8 w-8" />
 
             <h2 className="mt-4 text-xl font-bold text-black">
