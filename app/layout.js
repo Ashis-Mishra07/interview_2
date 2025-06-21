@@ -23,11 +23,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-100`}
-      >
+        suppressHydrationWarning>
         <Provider>
-        {children}
-        <Toaster />
-        </Provider> 
+          {children}
+          <Toaster />
+        </Provider>
       </body>
     </html>
   );

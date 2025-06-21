@@ -1,11 +1,18 @@
+"use client"
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+
+  const handleRedirect = () => {
+    router.push("/auth");
+  };
+
   return (
     <div>
       Hello
-      <Button> Hello </Button>
+      <Button onClick={handleRedirect}> Hello </Button>
     </div>
   );
 }
