@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div>
       Hello
-      <Button onClick={handleRedirect}> Hello </Button>
+      <Button className={'cursor-pointer'} onClick={handleRedirect}> Hello </Button>
     </div>
   );
 }
