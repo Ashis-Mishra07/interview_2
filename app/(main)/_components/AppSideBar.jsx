@@ -11,7 +11,7 @@ import {
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { SideBarOptions } from "@/services/Constants"
-import { Plus } from "lucide-react"
+import { ArrowLeft, ArrowRight, Plus } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -24,14 +24,18 @@ export function AppSidebar() {
     return (
         <Sidebar>
             <SidebarHeader className='flex items-center'>
-                <Image
-                    src="/logo.png"
-                    alt="logo"
-                    width={1000}
-                    height={50}
-                    className="w-full h-[50px] object-cover my-4"
-                />
-                <Button className='w-full mt-5'> <Plus /> Create New Interview </Button>
+                <Link href='https://ai-course-generator-indol.vercel.app/dashboard'>
+                    <Image
+                        src="/logo.png"
+                        alt="logo"
+                        width={1000}
+                        height={60}
+                        className="w-full h-[70px] object-cover my-4"
+                    />
+                </Link>
+                <Link href="https://ai-course-generator-indol.vercel.app/" className="w-full" >
+                    <Button className='w-full mt-5'> <ArrowLeft /> Back to dashboard </Button>
+                </Link>
 
             </SidebarHeader>
             <SidebarContent>

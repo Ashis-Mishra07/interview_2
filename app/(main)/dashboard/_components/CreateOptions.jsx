@@ -1,4 +1,4 @@
-import { Phone, Video } from 'lucide-react'
+import { FileSearch, Phone, Video } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -10,12 +10,12 @@ function CreateOptions() {
         <h2 className='font-bold'>Create New Interview</h2>
         <p className='text-gray-500'>Create AI Interviews and schedule then with Candidates</p>
       </Link>
-      <div className='bg-white border border-gray-200 rounded-lg p-5 flex flex-col gap-2' >
 
-        <Phone className='p-3 text-primary bg-blue-50 rounded-lg h-12 w-12' />
-        <h2 className='font-bold'>Create Phone Screening Call</h2>
-        <p className='text-gray-500'>Schedule phone screening call with candidates</p>
-      </div>
+      <Link href={'https://ai-pdf-maker.vercel.app/dashboard'} className='bg-white border border-gray-200 rounded-lg p-5 flex flex-col gap-2 cursor-pointer'>
+        <FileSearch className='p-3 text-primary bg-blue-50 rounded-lg h-12 w-12' />
+        <h2 className='font-bold'>PDF Resume Analyzer</h2>
+        <p className='text-gray-500'>Analyze candidate resumes and extract key information automatically</p>
+      </Link>
     </div>
   )
 }
