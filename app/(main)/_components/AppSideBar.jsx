@@ -33,10 +33,10 @@ export function AppSidebar() {
                         className="w-full h-[70px] object-cover my-4"
                     />
                 </Link>
-                <Link href="https://ai-course-generator-indol.vercel.app/" className="w-full" >
+                <Link href="https://ai-course-generator-indol.vercel.app/dashboard" className="w-full" >
                     <Button className='w-full mt-5'> <ArrowLeft /> Back to dashboard </Button>
                 </Link>
-
+                
             </SidebarHeader>
             <SidebarContent>
                 <SidebarGroup />
