@@ -9,7 +9,7 @@ function Login() {
   const router = useRouter();
 
   const signInWithGoogle = async () => {
-    const redirectTo = `${process.env.NEXT_PUBLIC_SITE_URL}/auth`;
+    const redirectTo = `${process.env.NEXT_PUBLIC_SITE_URL}/dashboard`;
     console.log("Redirecting to:", redirectTo);
 
     const { data, error } = await supabase.auth.signInWithOAuth({
