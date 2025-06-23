@@ -2,23 +2,43 @@
 import { Button } from '@/components/ui/button'
 import { supabase } from '@/services/supabaseClient'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
 function Login() {
   const router = useRouter();
 
+  // Check for existing session on load
+  useEffect(() => {
+    const checkUser = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        router.push('/dashboard');
+      }
+    };
+
+    checkUser();
+
+    // Set up auth state listener
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        if (session && (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED')) {
+          router.push('/dashboard');
+        }
+      }
+    );
+
+    // Clean up subscription
+    return () => subscription?.unsubscribe();
+  }, [router]);
+
   const signInWithGoogle = async () => {
-    const { data, error } = await supabase.auth.signInWithOAuth({
+    await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${window.location.origin}/dashboard`,
+        redirectTo: `${window.location.origin}/auth`,
       },
     });
-
-    if (error) {
-      console.error('Error signing in with Google:', error.message);
-    }
   }
 
   return (
