@@ -2,45 +2,30 @@
 import { Button } from '@/components/ui/button'
 import { supabase } from '@/services/supabaseClient'
 import Image from 'next/image'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useRouter } from 'next/navigation'
 
 function Login() {
   const router = useRouter();
 
-  // Check for existing session on load
-  useEffect(() => {
-    const checkUser = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session) {
-        router.push('/dashboard');
-      }
-    };
-
-    checkUser();
-
-    // Set up auth state listener
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        if (session && (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED')) {
-          router.push('/dashboard');
-        }
-      }
-    );
-
-    // Clean up subscription
-    return () => subscription?.unsubscribe();
-  }, [router]);
-
   const signInWithGoogle = async () => {
-    // Use a site-relative URL instead of window.location.origin
-    await supabase.auth.signInWithOAuth({
+    const redirectTo = `${process.env.NEXT_PUBLIC_SITE_URL}/auth`;
+    console.log("Redirecting to:", redirectTo);
+
+    const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: '/auth', // Relative URL works in all environments
+        redirectTo,
       },
     });
-  }
+
+    if (error) {
+      console.error('Error signing in with Google:', error.message);
+    }
+  };
+  
+  
+  
 
   return (
     <div className='flex flex-col items-center justify-center h-screen '>
