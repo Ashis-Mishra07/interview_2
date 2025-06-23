@@ -29,38 +29,25 @@ function QuestionList({ formData , onCreateLink}) {
                 ...formData
             });
 
-            console.log("API response:", result.data);
-
-            // Check if result.data.content exists before proceeding
-            if (!result.data || result.data.content === undefined) {
-                throw new Error("Invalid response format from AI model API");
-            }
-
+            console.log(result.data.content);
             const Content = result.data.content;
 
             // Extract the JSON content from between ```json and ```
             let jsonContent;
             if (Content.includes('```json')) {
                 jsonContent = Content.split('```json')[1].split('```')[0].trim();
-            } else if (Content.includes('```')) {
-                // Handle case where code block exists but without json tag
-                jsonContent = Content.split('```')[1].split('```')[0].trim();
             } else {
                 jsonContent = Content;
             }
 
             console.log("Extracted JSON:", jsonContent);
             const parsedData = JSON.parse(jsonContent);
-            if (!parsedData?.interviewQuestions) {
-                throw new Error("Invalid question format in response");
-            }
-
-            setQuestionList(parsedData.interviewQuestions);
+            setQuestionList(parsedData?.interviewQuestions);
             setloading(false);
         }
         catch (e) {
-            console.error("Error generating questions:", e);
-            toast.error('Failed to generate questions. Please try again.');
+            console.error("Error parsing JSON:", e);
+            toast.error('Failed to parse questions. Please try again.');
             setloading(false);
         }
     }
